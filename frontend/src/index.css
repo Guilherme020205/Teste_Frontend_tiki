@@ -3,8 +3,25 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+}
+
+:root {
+  --palette-base: #240031;
+  --palette-shade: #26093a;
+  --palette-pink: #fc2bee;
+  --palette-purple: #8f0dff;
+  --palette-white: #ffffff;
+}
+
+body {
+  background-color: var(--palette-base);
+  font-family: "Montserrat", sans-serif;
+}
+
+.stroke {
+  -webkit-text-stroke: 1px var(--palette-white);  
 }
