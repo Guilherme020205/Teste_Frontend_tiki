@@ -6,6 +6,15 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
+      colors: {
+        palette: {
+          base: "#240031",
+          shade: "#26093A",
+          pink: "#FC2BEE",
+          purple: "#8F0DFF",
+          white: "#ffffff"
+        },
+      },
     },
   },
   plugins: [],
