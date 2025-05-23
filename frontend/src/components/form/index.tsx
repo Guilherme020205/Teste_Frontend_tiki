@@ -19,7 +19,12 @@ export default function Formulario() {
   }
 
   return (
-    <div className="bg-palette-shade w-[528px] flex flex-col justify-center items-center p-14 rounded-[80px]">
+    <div
+      className="bg-palette-shade flex flex-col justify-center       items-center rounded-[80px] 
+      w-[420px] p-10
+      sm:w-[528px] sm:p-14
+      "
+    >
       <p className="flex text-center text-xs font-bold text-white mb-10">
         CADASTRE-SE E FIQUE POR DENTRO <br /> DAS NOVIDADES
       </p>
@@ -41,6 +46,7 @@ export default function Formulario() {
         />
         <div className="flex flex-row gap-1">
           <input
+            className="cursor-pointer"
             type="checkbox"
             name="inputradio"
             id="inputradio"

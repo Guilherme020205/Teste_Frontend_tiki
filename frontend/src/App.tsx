@@ -21,7 +21,12 @@ function App() {
 
       <Formulario />
 
-      <div className="flex flex-col items-center max-w-[970px] text-center mt-28">
+      <div className="flex flex-col items-center text-center 
+        max-w-[400px] mt-14
+        sm:max-w-[500px] sm:mt-20
+        lg:max-w-[970px] lg:mt-28
+        "
+      >
         <h2 className="text-[18px] font-bold text-palette-white mb-1">
           TEXTO LEGAL
         </h2>
