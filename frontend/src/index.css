@@ -17,11 +17,17 @@
   --palette-white: #ffffff;
 }
 
-body {
-  background-color: var(--palette-base);
-  font-family: "Montserrat", sans-serif;
-}
-
 .stroke {
   -webkit-text-stroke: 1px var(--palette-white);  
+}
+
+body {
+  margin: 0;
+  padding: 0;  
+  background-image: url('./assets/Images/Background.jpg');
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-color: var(--palette-base);
+  font-family: "Montserrat", sans-serif;
+
 }

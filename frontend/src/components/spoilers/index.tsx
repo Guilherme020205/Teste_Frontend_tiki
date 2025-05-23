@@ -6,7 +6,7 @@ import Carrossel from "./carrossel";
 export default function Spoilers() {
  
   return (
-    <div className="bg-palette-shade rounded-[80px] py-20 px-20 flex flex-col items-center gap-10">
+    <div className="bg-palette-shade rounded-[80px] py-20 px-20 w-[1184px]  flex flex-col items-center gap-10">
       <p className="text-palette-shade font-bold text-4xl stroke">
         CUIDADO, AO ROLAR PODE CONTER...
       </p>

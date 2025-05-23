@@ -20,12 +20,17 @@ const list_banner = [
   { id: "9", titulo: "30 DE MARÇO", url_banner: "" },
 ];
 
+import facebook from "../../../assets/SVG/facebook.svg";
+import linkedin from "../../../assets/SVG/linkedin.svg";
+import twitter from "../../../assets/SVG/twitter.svg";
+import whatsapp from "../../../assets/SVG/whatsapp.svg";
+
 export default function Carrossel() {
   const [currentGroup, setCurrentGroup] = useState(0);
   const [mainBanner, setMainBanner] = useState(
     list_banner[0].url_banner || lock
   );
-
+  
   const groupSize = 4;
   const totalGroups = Math.ceil(list_banner.length / groupSize);
 
@@ -50,12 +55,21 @@ export default function Carrossel() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-palette-base rounded-[40px] w-[1000px] h-[523px] flex justify-center items-center">
+      <div className="bg-palette-base rounded-[40px] w-[1000px] h-[523px] flex justify-center items-end shadow-[-10px_20px_50px_rgba(142,13,255,20)] group">
         <img
-          className={mainBanner === lock ? "w-20" : "w-[1000px] rounded-[40px]"}
+          className={
+            mainBanner === lock ? "w-20 absolute mb-[212px]" : "w-[1000px] rounded-[40px] absolute"
+          }
           src={mainBanner}
           alt="banner principal"
         />
+        <div className="z-10 bg-black/90 flex flex-row justify-center items-center h-[70px] w-full invisible group-hover:visible rounded-bl-[40px] rounded-br-[40px] transition duration-1000 gap-2">
+          <p className="text-palette-white text-xs font-bold">Espalhe este SPOILER:</p> 
+          <i><img src={facebook} alt="facebook"/></i>
+          <i><img src={linkedin} alt="linkedin"/></i>
+          <i><img src={whatsapp} alt="whatsapp"/></i>
+          <i><img src={twitter} alt="twitter"/></i>
+        </div>
       </div>
 
       <p className="text-white font-bold text-xl mt-8 mb-5">
