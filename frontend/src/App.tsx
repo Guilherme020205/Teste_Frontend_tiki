@@ -7,11 +7,11 @@ import icon_yellow from "./assets/SVG/icon-yellow.svg";
 
 function App() {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <img className="w-56 my-10" src={`${logo_tiki}`} alt="Tiki" />
+    <div className="flex flex-col justify-center items-center select-none">
+      <img className="w-56 my-16" src={`${logo_tiki}`} alt="Tiki" />
       <Spoilers />
-      <div className="flex flex-col items-center gap-7 my-8">
-        <img className="w-52" src={`${tittle2}`} alt="Quero fazer parte!" />
+      <div className="flex flex-col items-center gap-16">
+        <img className="w-[550px] mt-20" src={`${tittle2}`} alt="Quero fazer parte!" />
         <img className="w-3" src={`${icon_yellow}`} alt="icon_yellow" />
       </div>
 
