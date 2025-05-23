@@ -31,7 +31,7 @@ export default function Carrossel() {
   useEffect(() => {
     const updateGroupSize = () => {
       if (window.innerWidth > 1024) {
-        setGroupSize(4); 
+        setGroupSize(4);
       } else {
         setGroupSize(1);
       }
@@ -71,15 +71,15 @@ export default function Carrossel() {
       <div
         className="bg-palette-base flex justify-center items-end shadow-[-10px_20px_50px_rgba(142,13,255,20)] group
         rounded-[40px] w-[380px] h-[200px]
-      sm:bg-red-300
+        sm:w-[500px] sm:h-[261px]
         md:w-[1000px] md:h-[523px]
         "
       >
         <img
           className={
             mainBanner === lock
-              ? "w-10 absolute mb-[80px] sm:bg-red-300 md:w-20 md:mb-[212px]"
-              : "w-[380px] rounded-[40px] absolute sm:bg-red-300 md:w-[1000px]"
+              ? "w-10 absolute mb-[80px] sm:mb-[100px] md:w-20 md:mb-[212px]"
+              : "w-[380px] rounded-[40px] absolute sm:w-[500px] md:w-[1000px]"
           }
           src={mainBanner}
           alt="banner principal"
