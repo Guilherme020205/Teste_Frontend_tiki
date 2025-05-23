@@ -8,10 +8,7 @@ import icon_yellow from "./assets/SVG/icon-yellow.svg";
 function App() {
   return (
     <div className="flex flex-col justify-center items-center select-none py-20">
-      <img className="w-56 mb-16 
-      bg-black
-      sm:bg-red-500
-      md:bg-blue-500 " src={`${logo_tiki}`} alt="Tiki" />
+      <img className="w-56 mb-16" src={`${logo_tiki}`} alt="Tiki" />
       <Spoilers />
       <div className="flex flex-col items-center gap-16 mb-20">
         <img

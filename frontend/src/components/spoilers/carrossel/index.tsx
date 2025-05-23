@@ -72,14 +72,14 @@ export default function Carrossel() {
         className="bg-palette-base flex justify-center items-end shadow-[-10px_20px_50px_rgba(142,13,255,20)] group
         rounded-[40px] w-[380px] h-[200px]
         sm:w-[500px] sm:h-[261px]
-        md:w-[1000px] md:h-[523px]
+        lg:w-[1000px] lg:h-[523px]
         "
       >
         <img
           className={
             mainBanner === lock
-              ? "w-10 absolute mb-[80px] sm:mb-[100px] md:w-20 md:mb-[212px]"
-              : "w-[380px] rounded-[40px] absolute sm:w-[500px] md:w-[1000px]"
+              ? "w-10 absolute mb-[80px] sm:mb-[100px] lg:w-20 lg:mb-[212px]"
+              : "w-[380px] rounded-[40px] absolute sm:w-[500px] lg:w-[1000px]"
           }
           src={mainBanner}
           alt="banner principal"
@@ -115,7 +115,7 @@ export default function Carrossel() {
         CONFIRA O QUE JÁ SAIU O QUE ESTÁ POR VIR!
       </p>
 
-      <div className="flex flex-row items-center space-x-4 sm:space-x-4 md:space-x-4">
+      <div className="flex flex-row items-center space-x-4 sm:space-x-4 lg:space-x-4">
         <button
           onClick={prevGroup}
           className="bg-palette-white rounded-full p-1 shadow-[3px_5px_0px_rgba(252,43,238,100)]"
