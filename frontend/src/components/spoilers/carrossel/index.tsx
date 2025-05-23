@@ -1,9 +1,5 @@
 import { RiArrowLeftSFill, RiArrowRightSFill } from "react-icons/ri";
-
-import { useState } from "react";
-
-// import arrow_left from "../../../assets/SVG/arrow-left.svg";
-// import arrow_right from "../../../assets/SVG/arrow-right.svg";
+import { useState, useEffect } from "react";
 
 import lock from "../../../assets/SVG/lock.svg";
 import banner1 from "../../../assets/Images/imagem.jpg";
@@ -30,10 +26,28 @@ export default function Carrossel() {
   const [mainBanner, setMainBanner] = useState(
     list_banner[0].url_banner || lock
   );
-  
-  const groupSize = 4;
-  const totalGroups = Math.ceil(list_banner.length / groupSize);
+  const [groupSize, setGroupSize] = useState(4);
 
+  useEffect(() => {
+    const updateGroupSize = () => {
+      if (window.innerWidth > 1024) {
+        setGroupSize(4); 
+      } else {
+        setGroupSize(1);
+      }
+    };
+
+    // Define inicialmente
+    updateGroupSize();
+
+    // Escuta mudanças de tamanho
+    window.addEventListener("resize", updateGroupSize);
+
+    // Limpeza
+    return () => window.removeEventListener("resize", updateGroupSize);
+  }, []);
+
+  const totalGroups = Math.ceil(list_banner.length / groupSize);
   const startIndex = currentGroup * groupSize;
   const visibleBanners = list_banner.slice(startIndex, startIndex + groupSize);
 
@@ -52,31 +66,56 @@ export default function Carrossel() {
   const newBanner = (url_banner: string) => {
     setMainBanner(url_banner !== "" ? url_banner : lock);
   };
-
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-palette-base rounded-[40px] w-[1000px] h-[523px] flex justify-center items-end shadow-[-10px_20px_50px_rgba(142,13,255,20)] group">
+      <div
+        className="bg-palette-base flex justify-center items-end shadow-[-10px_20px_50px_rgba(142,13,255,20)] group
+        rounded-[40px] w-[380px] h-[200px]
+      sm:bg-red-300
+        md:w-[1000px] md:h-[523px]
+        "
+      >
         <img
           className={
-            mainBanner === lock ? "w-20 absolute mb-[212px]" : "w-[1000px] rounded-[40px] absolute"
+            mainBanner === lock
+              ? "w-10 absolute mb-[80px] sm:bg-red-300 md:w-20 md:mb-[212px]"
+              : "w-[380px] rounded-[40px] absolute sm:bg-red-300 md:w-[1000px]"
           }
           src={mainBanner}
           alt="banner principal"
         />
-        <div className="z-10 bg-black/90 flex flex-row justify-center items-center h-[70px] w-full invisible group-hover:visible rounded-bl-[40px] rounded-br-[40px] transition duration-1000 gap-2">
-          <p className="text-palette-white text-xs font-bold">Espalhe este SPOILER:</p> 
-          <i><img src={facebook} alt="facebook"/></i>
-          <i><img src={linkedin} alt="linkedin"/></i>
-          <i><img src={whatsapp} alt="whatsapp"/></i>
-          <i><img src={twitter} alt="twitter"/></i>
+        <div className="z-10 bg-black/90 flex flex-row justify-center items-center w-full invisible rounded-bl-[40px] rounded-br-[40px] transition duration-1000 gap-2 h-[70px] group-hover:visible">
+          <p className="text-palette-white text-xs font-bold ">
+            Espalhe este SPOILER:
+          </p>
+          <button>
+            <i>
+              <img src={facebook} alt="facebook" />
+            </i>
+          </button>
+          <button>
+            <i>
+              <img src={linkedin} alt="linkedin" />
+            </i>
+          </button>
+          <button>
+            <i>
+              <img src={whatsapp} alt="whatsapp" />
+            </i>
+          </button>
+          <button>
+            <i>
+              <img src={twitter} alt="twitter" />
+            </i>
+          </button>
         </div>
       </div>
 
-      <p className="text-white font-bold text-xl mt-8 mb-5">
+      <p className="text-white font-bold text-[14px] mt-8 mb-5 sm:text-[24px]">
         CONFIRA O QUE JÁ SAIU O QUE ESTÁ POR VIR!
       </p>
 
-      <div className="flex flex-row items-center space-x-4">
+      <div className="flex flex-row items-center space-x-4 sm:space-x-4 md:space-x-4">
         <button
           onClick={prevGroup}
           className="bg-palette-white rounded-full p-1 shadow-[3px_5px_0px_rgba(252,43,238,100)]"
@@ -84,7 +123,7 @@ export default function Carrossel() {
           <RiArrowLeftSFill className="text-4xl" />
         </button>
 
-        <ul className="flex flex-row justify-center items-center space-x-6">
+        <ul className="flex flex-row justify-center items-center space-x-1 sm:space-x-6">
           {visibleBanners.map((list) => (
             <li key={list.id}>
               <button
@@ -115,7 +154,7 @@ export default function Carrossel() {
                       />
                     )}
                   </div>
-                  <p className="text-[14px] font-bold text-palette-pink group-hover:text-palette-white transition duration-300">
+                  <p className="font-bold text-palette-pink group-hover:text-palette-white transition duration-300 text-[14px]">
                     {list.titulo}
                   </p>
                 </div>
